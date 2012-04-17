@@ -1,8 +1,11 @@
 ProjetBlog::Application.routes.draw do
 
-match '/posts' => 'posts#index', :as => :posts, :via => :get
+#match '/posts' => 'posts#index', :as => :posts, :via => :get
+#match '/posts/new' => 'posts#new', :as => :new_posts, :via => :get
 
-
+resources :posts, :only => [:index]
+resources :posts, :only => [:new]
+resources :posts, :only => [:create]
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

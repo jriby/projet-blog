@@ -17,4 +17,35 @@ describe PostsController do
       response.should render_template(:index)
     end
   end
+
+  describe "GET 'new'" do
+
+    it "should use new" do
+      Post.should_receive(:new)
+      get 'new'
+      response.should be_success
+    end
+
+    it "renders the template new" do
+      get 'new'
+      response.should render_template(:new)
+    end
+  end
+  describe "POST '/posts'" do
+   before(:each) do
+      @p = double(Post)
+      Post.stub(:create){@p}
+      @params={:post=>{:title=>"title",:body=>"content"}}
+    end
+
+    it "should create a new post" do
+      Post.should_receive(:create).with("title"=>"title", "body"=>"content")
+      post 'create',@params
+    end
+    
+    it "should redirect to the posts page" do
+       post 'create',@params
+       response.should redirect_to(posts_path)
+    end
+  end
 end
