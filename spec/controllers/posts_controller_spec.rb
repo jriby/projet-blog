@@ -110,4 +110,23 @@ describe PostsController do
       response.should redirect_to(posts_path)
     end
   end
+
+  describe "GET '/posts/:id'" do
+   before(:each) do
+      @p = double(Post)
+      Post.stub(:find){@p}
+      @params={:id =>"1"}
+    end
+    it "should use find" do
+      Post.should_receive(:find).with("1")
+      get 'show',@params
+      response.should be_success
+    end
+
+    it "renders the template show" do
+      get 'show',@params
+      response.should render_template(:show)
+    end
+  end
+
 end

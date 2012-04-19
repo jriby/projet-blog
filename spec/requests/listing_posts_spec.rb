@@ -7,12 +7,10 @@ describe "ListingPosts" do
       @post2 = Post.create(:title => "sujet2", :body => "bla bla", :creator => "jriby")
     end
 
-    describe "GET /posts" do
-      it "generates a listing of posts" do
-        visit posts_path
-        page.should have_content @post1.title
-        page.should have_content @post2.title
-      end
+    it "generates a listing of posts" do
+      visit posts_path
+      page.should have_content @post1.title
+      page.should have_content @post2.title
     end
   end
 end

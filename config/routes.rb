@@ -9,6 +9,7 @@ resources :posts, :only => [:create]
 resources :posts, :only => [:destroy]
 resources :posts, :only => [:edit]
 resources :posts, :only => [:update]
+resources :posts, :only => [:show]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

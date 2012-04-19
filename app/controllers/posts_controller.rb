@@ -25,5 +25,7 @@ class PostsController < ApplicationController
     post.update_attributes(params[:post])
     redirect_to(posts_path)
   end
-
+  def show
+    @post = Post.find(params[:id])
+  end
 end
