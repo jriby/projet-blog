@@ -72,4 +72,42 @@ describe PostsController do
        response.should redirect_to(posts_path)
     end
   end
+  describe "GET '/posts/:id/edit'" do
+   before(:each) do
+      @p = double(Post)
+      Post.stub(:find){@p}
+      @params={:id =>"1"}
+    end
+    it "should use find" do
+      Post.should_receive(:find).with("1")
+      get 'edit',@params
+      response.should be_success
+    end
+
+    it "renders the template edit" do
+      get 'edit',@params
+      response.should render_template(:edit)
+    end
+  end
+
+  describe "PUT '/posts/:id'" do
+   before(:each) do
+      @p = double(Post)
+      Post.stub(:find){@p}
+      @p.stub(:update_attributes)
+      @params={:id=>1,:post=>{"title"=>"title2","body"=>"body2"}}
+    end
+    it "should use find" do
+      Post.should_receive(:find).with("1")
+      put 'update',@params
+    end
+    it "should use update_atttributes" do
+      @p.should_receive(:update_attributes).with(@params[:post])
+      put 'update',@params
+    end
+    it "redirect to the post page" do
+      put 'update',@params
+      response.should redirect_to(posts_path)
+    end
+  end
 end
