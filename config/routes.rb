@@ -1,15 +1,7 @@
 ProjetBlog::Application.routes.draw do
 
-#match '/posts' => 'posts#index', :as => :posts, :via => :get
-#match '/posts/new' => 'posts#new', :as => :new_posts, :via => :get
-
-resources :posts, :only => [:index]
-resources :posts, :only => [:new]
-resources :posts, :only => [:create]
-resources :posts, :only => [:destroy]
-resources :posts, :only => [:edit]
-resources :posts, :only => [:update]
-resources :posts, :only => [:show]
+resources :posts
+root :to => 'posts#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -61,8 +53,6 @@ resources :posts, :only => [:show]
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
-  
-  #root :to => 'posts#index'
 
   # See how all your routes lay out with "rake routes"
 

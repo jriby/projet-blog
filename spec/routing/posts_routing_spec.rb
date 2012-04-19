@@ -1,7 +1,11 @@
 require 'spec_helper'
 describe PostsController do 
-  it "routes to #index" do 
+  it "routes to #index with /posts" do 
     get('/posts').should route_to("posts#index")
+  end
+
+  it "routes to #index with /" do 
+    get('/').should route_to("posts#index")
   end
 
   it "should provide the aliast post_path for /posts" do 
