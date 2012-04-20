@@ -4,7 +4,7 @@ describe Post do
 
   describe "init" do
     after do
-      #@p.destroy
+      @p.destroy
     end
     describe "With good infos" do
       it "should be valid with a title, a body and a creator" do

@@ -2,4 +2,9 @@
 <br />
 <p><%= @post.body %></p>
 <br />
+
+<% @comments.each do |comment| %>
+  <li><%= comment.author %><%= comment.body %></li>
+<% end %>
+
 <%= link_to 'Index', posts_path %>
