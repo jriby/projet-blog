@@ -3,9 +3,9 @@ require 'spec_helper'
 describe "ListingComments" do
   describe "GET /posts/:id" do
     before(:each) do
-      @post = Post.create(:id => "1", :title => "sujet1", :body => "bla bla")
-      @comment1 = Comment.create(:author => "Julien", :body => "bla bla", :post_id => 1)
-      @comment2 = Comment.create(:author => "Momo", :body => "bla bla", :post_id => 1)
+      @post = Post.create(:title => "sujet1", :body => "bla bla")
+      @comment1 = @post.comments.create(:author => "Julien", :body => "bla bla")
+      @comment2 = @post.comments.create(:author => "Momo", :body => "bla bla")
     end
       it "generates a listing of comments" do
         visit post_path(@post)

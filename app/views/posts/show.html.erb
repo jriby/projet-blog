@@ -3,8 +3,6 @@
 <p><%= @post.body %></p>
 <br />
 
-<% @comments.each do |comment| %>
-  <li><%= comment.author %><%= comment.body %></li>
-<% end %>
+<%= render 'comments/listing_comments' %>
 
 <%= link_to 'Index', posts_path %>

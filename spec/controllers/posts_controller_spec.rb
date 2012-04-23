@@ -114,21 +114,12 @@ describe PostsController do
   describe "GET '/posts/:id'" do
    before(:each) do
       @p = double(Post)
-      @c1 = double(Comment)
       Post.stub(:find){@p}
-      Comment.stub(:where){@c1}
       @params={:id =>"1"}
     end
     it "should use find" do
       Post.should_receive(:find).with("1")
       get 'show',@params
-      response.should be_success
-    end
-
-    it "assigns a list of comments" do
-      Comment.should_receive(:where).with(:post_id=>"1")
-      get 'show',@params
-      assigns(:comments).should eq @c1
       response.should be_success
     end
 
