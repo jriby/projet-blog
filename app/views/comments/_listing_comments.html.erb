@@ -1,7 +1,8 @@
 <ul>
 <% @post.comments.all.each do |comment| %>
-    <p><%= comment.author %></p>
-    <p><%= comment.body %></p>
+    
+    <p>Author : <%= comment.author %></p>
+    <p>Comment : <%= comment.body %></p>
   </li>
 <% end %>
 </ul>

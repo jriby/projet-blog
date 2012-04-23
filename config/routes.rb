@@ -4,6 +4,9 @@ ProjetBlog::Application.routes.draw do
 resources :posts
 root :to => 'posts#index'
 
+match '/posts/:post_id/comments/new' => 'comments#new', :as => :new_comment, :via => :get
+match '/posts/:post_id/comments' => 'comments#create', :via => :post
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
