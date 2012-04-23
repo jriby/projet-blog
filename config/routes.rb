@@ -6,6 +6,9 @@ root :to => 'posts#index'
 
 match '/posts/:post_id/comments/new' => 'comments#new', :as => :new_comment, :via => :get
 match '/posts/:post_id/comments' => 'comments#create', :via => :post
+match '/posts/:post_id/comments/:id' => 'comments#destroy',:as => :comment, :via => :delete
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

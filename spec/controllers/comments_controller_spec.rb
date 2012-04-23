@@ -44,5 +44,37 @@ describe CommentsController do
     end
   end
 
+  describe "DELETE '/posts/:post_id/comments/:id'" do
+   before(:each) do
+      @p = double(Post)
+      @c=double(Comment)
+      Post.stub(:find_by_id){@p}
+      @p.stub(:comments){@c}
+      @c.stub(:find){@c}
+      @c.stub(:destroy)
+      @params={:id=>1, :post_id=>1}
+    end
+
+    it "should use find_by_id and return the post" do
+      Post.should_receive(:find_by_id).with("1")
+      delete 'destroy',@params
+    end
+    it "should use find and return the comment" do
+      @p.should_receive(:comments)
+      @c.should_receive(:find).with("1")
+      delete 'destroy',@params
+    end
+
+    it "should use destroy the comment" do
+      @c.should_receive(:destroy)
+      delete 'destroy',@params
+    end
+
+    it "should redirect to the post page" do
+       delete 'destroy',@params
+       response.should redirect_to(post_path(@p))
+    end
+  end
+
 
 end

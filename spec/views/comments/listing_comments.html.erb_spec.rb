@@ -11,5 +11,9 @@ describe "/comments/_listing_comments" do
     rendered.should =~ /Julien/
     rendered.should =~ /I am the body/
   end
+  it "have a link Destroy" do
+    render
+    rendered.should have_link('Destroy', :"data-method" => "delete", :href => comment_path(@p.id,@c.id))
+  end
   
 end
