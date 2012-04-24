@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Profil</title>
+</head>
+<body style="font: 13px Arial, sans-serif; background: rgb(240,240,240);">
+<center>
+
+<h1>Profil User</h1>
+        
+<div style="width: 600px; padding: 20px; text-align: left; background: rgb(255,255,255); box-shadow: 0 0 3px rgba(0,0,0,0.3);">
+	  <p>Bonjour <%= @user %> </p>
+            <% if @user == "admin" %><p>Vous êtes le grand maître du sauth </p>
+
+         <% @users = User.all%>
+
+           <div class="listappown">
+             <p>Liste des utilisateurs</p>
+             
+            <ul>
+              <% @users.each do |u| %> 
+                <%if u.login != "admin"%>
+                   
+                  <li><%=u.login%> - <form action="/users/<%= u.login%>" method="post">
+                                     <input name="commit" type="submit" value="supprimer" />
+                                     <input name="_method" type="hidden" value="delete" />
+                                     </form 
+                  </li>
+                <% end %>              
+              <% end %>
+            </ul>
+            </div>
+
+          <% end %>
+          <p></p>
+          <a href="/applications/new"> Inscrire une application </a>
+          <p></p>
+
+          <% if !@apps.empty?%>
+ 
+           <div class="listappown">
+             <p>Liste de vos applications</p>
+             
+            <ul>
+              <% @apps.each do |a| %>
+                <li><%=a.name%>  : <%=a.url%> - <form action="/application/<%= a.name%>" method="post">
+                                     <input name="commit" type="submit" value="effacer" />
+                                     <input name="_method" type="hidden" value="delete" />
+                                     </form 
+                  </li> </li>
+              <% end %>
+            </ul>
+            </div>
+
+            <%else%>
+              <p>Vous n'avez créé aucune application.</p>
+            <%end%>
+
+            <% if !@utils.empty? %>
+            <div class="listappuse">
+            <p>Liste des application que vous avez utilisees</p>
+              <ul>
+                <% @utils.each do |util| %>
+                  <% app = Application.find_by_id(util.application_id) %>
+                  <li><%=app.name%> : <%=app.url%></li>
+                <% end %>
+              </ul>
+            </div>
+
+           <%else%>
+             <p>Vous n'utilisez aucune application</p>
+           <%end%>
+          <a href="/"> Retourner à l'acceuil </a>
+          <p></p>
+          <a href="/sessions/disconnect"> Deco </a>
+</div>
+</center>
+</body>
+</html>

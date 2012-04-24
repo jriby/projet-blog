@@ -1,0 +1,22 @@
+# Logfile created on 2012-04-24 15:12:23 +0200 by logger.rb/31641
+I, [2012-04-24T15:12:23.108263 #2958]  INFO -- : Connexion depuis le sauth de => Julien
+I, [2012-04-24T16:07:16.869958 #3882]  INFO -- : Connexion depuis le sauth de => Julien
+I, [2012-04-24T16:09:49.032616 #3882]  INFO -- : Tentative de connexion failed pour loli
+I, [2012-04-24T16:09:54.573231 #3882]  INFO -- : L'utilisateur Julien utilise l'application app_blog
+I, [2012-04-24T16:11:30.887684 #3882]  INFO -- : L'utilisateur Julien utilise l'application app_blog
+I, [2012-04-24T16:11:31.993364 #3882]  INFO -- : L'utilisateur Julien utilise l'application app_blog
+I, [2012-04-24T16:11:33.005081 #3882]  INFO -- : L'utilisateur Julien utilise l'application app_blog
+I, [2012-04-24T16:11:54.474635 #3882]  INFO -- : L'utilisateur Julien utilise l'application app_blog
+I, [2012-04-24T16:31:13.584954 #3882]  INFO -- : L'utilisateur Julien utilise l'application app_blog
+I, [2012-04-24T17:06:41.377174 #4984]  INFO -- : Tentative de connexion failed pour lo
+I, [2012-04-24T17:06:45.852476 #4984]  INFO -- : L'utilisateur Julien utilise l'application app_blog
+I, [2012-04-24T17:09:31.914249 #5093]  INFO -- : Tentative de connexion failed pour Julien
+I, [2012-04-24T17:09:34.845885 #5093]  INFO -- : L'utilisateur Julien utilise l'application app_blog
+I, [2012-04-24T17:36:49.971814 #5093]  INFO -- : L'utilisateur Julien utilise l'application app_blog
+I, [2012-04-24T17:37:13.701616 #5093]  INFO -- : L'utilisateur Julien utilise l'application app_blog
+I, [2012-04-24T18:36:17.310576 #6891]  INFO -- : Tentative de connexion failed pour admin
+I, [2012-04-24T18:36:37.520382 #6891]  INFO -- : Connexion depuis le sauth de => admin
+I, [2012-04-24T18:42:38.078973 #7160]  INFO -- : Tentative de connexion failed pour couc
+I, [2012-04-24T18:42:42.405932 #7160]  INFO -- : L'utilisateur Julien utilise l'application app_blog
+I, [2012-04-24T18:43:39.293453 #7257]  INFO -- : Connexion depuis le sauth de => Julien
+I, [2012-04-24T18:43:51.132792 #7257]  INFO -- : L'utilisateur Julien utilise l'application app_blog
