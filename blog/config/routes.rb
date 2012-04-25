@@ -9,8 +9,6 @@ match '/posts/:post_id/comments/:id' => 'comments#destroy',:as => :comment, :via
 
 resources :sessions, :only => [:new]
 
-match "*path" => redirect("http://sauth:6666/%{path}?origin=/sessions/new"), :constraints => { :protocol => "http://" }
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,4 +1,6 @@
 require 'spec_helper'
+require 'capybara/mechanize'
+Capybara.default_driver = :mechanize
 
 describe "NewSessions" do
   describe "GET /sessions/new" do
@@ -10,7 +12,9 @@ describe "NewSessions" do
     it "should redirect to the sauth" do
       visit posts_path
       click_link('Connection')
-      current_path.should == "Le sauth"
+      current_path.should == "/sessions/new/app/app_blog"
+      page.should have_content('Portail de Connexion')
+      page.should have_selector('form')
     end
 
     it "should connect you to the blog" do
