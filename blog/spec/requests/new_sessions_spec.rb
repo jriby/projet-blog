@@ -1,8 +1,7 @@
 require 'spec_helper'
 require 'capybara/mechanize'
-Capybara.default_driver = :mechanize
 
-describe "NewSessions" do
+describe "NewSessions", :driver => :mechanize do
   describe "GET /sessions/new" do
     it "should have a link in the listing post page to signin" do
       visit posts_path
