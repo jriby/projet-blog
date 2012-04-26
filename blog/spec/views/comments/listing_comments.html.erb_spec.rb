@@ -11,9 +11,21 @@ describe "/comments/_listing_comments" do
     rendered.should =~ /Julien/
     rendered.should =~ /I am the body/
   end
-  it "have a link Destroy" do
-    render
-    rendered.should have_link('Destroy', :"data-method" => "delete", :href => comment_path(@p.id,@c.id))
+
+  context "with current user" do
+    before(:each) do
+      session["current_user_blog"]="Julien"
+    end
+
+    it "have a link Destroy" do
+      render
+      rendered.should have_link('Destroy', :"data-method" => "delete", :href => comment_path(@p.id,@c.id))
+    end
+  end  
+  context "without current user" do
+    it "not have a link Destroy" do
+      render
+      rendered.should_not have_link('Destroy', :"data-method" => "delete", :href => comment_path(@p.id,@c.id))
+    end
   end
-  
 end

@@ -1,5 +1,7 @@
 require 'spec_helper'
 
+  include SessionsHelper
+
 describe "EditPosts" do
   before(:each) do
     @post = Post.create(:title => "Titre1", :body => "body1", :creator => "Julien")

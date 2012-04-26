@@ -14,16 +14,41 @@ describe "posts/index" do
     rendered.should =~ /sujet 2/
   end
 
-  it "have a link New Post" do
-    render
-    rendered.should have_link('New Post', :href => new_post_path)
+  context "with current user" do
+    before(:each) do
+      session["current_user_blog"]="Julien"
+    end
+
+    it "have a link New Post" do
+      render
+      rendered.should have_link('New Post', :href => new_post_path)
+    end
+
+    it "have a link Destroy" do
+      render
+      rendered.should have_link('Destroy', :"data-method" => "delete", :href => post_path(1))
+      rendered.should have_link('Destroy', :"data-method" => "delete", :href => post_path(2))
+    end
+    it "have a link Edit" do
+      render
+      rendered.should have_link('Edit')
+    end
   end
+  context "without current user" do
+    
+    it "not have a link New Post" do
+      render
+      rendered.should_not have_link('New Post')
+    end
 
-
-  it "have a link Destroy" do
-    render
-    rendered.should have_link('Destroy', :"data-method" => "delete", :href => post_path(1))
-    rendered.should have_link('Destroy', :"data-method" => "delete", :href => post_path(2))
+    it "not have a link Destroy" do
+      render
+      rendered.should_not have_link('Destroy')
+    end
+    it "not have a link Edit" do
+      render
+      rendered.should_not have_link('Edit')
+    end
   end
 
   it "should displays status_session" do

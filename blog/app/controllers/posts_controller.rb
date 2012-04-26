@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+  include SessionsHelper
+
+  before_filter :must_be_connected, :except => [:index, :show]
   def index
     @posts = Post.all
   end

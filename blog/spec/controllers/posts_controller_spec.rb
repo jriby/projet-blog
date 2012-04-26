@@ -19,7 +19,9 @@ describe PostsController do
   end
 
   describe "GET 'new'" do
-
+    before(:each) do
+      session["current_user_blog"]="Julien"
+    end
     it "should use new" do
       Post.should_receive(:new)
       get 'new'
@@ -33,6 +35,7 @@ describe PostsController do
   end
   describe "POST '/posts'" do
    before(:each) do
+      session["current_user_blog"]="Julien"
       @p = double(Post)
       Post.stub(:create){@p}
       @params={:post=>{:title=>"title",:body=>"content"}}
@@ -51,6 +54,7 @@ describe PostsController do
 
   describe "DELETE '/posts/:id'" do
    before(:each) do
+      session["current_user_blog"]="Julien"
       @p = double(Post)
       Post.stub(:find){@p}
       @p.stub(:destroy)
@@ -74,6 +78,7 @@ describe PostsController do
   end
   describe "GET '/posts/:id/edit'" do
    before(:each) do
+      session["current_user_blog"]="Julien"
       @p = double(Post)
       Post.stub(:find){@p}
       @params={:id =>"1"}
@@ -92,6 +97,7 @@ describe PostsController do
 
   describe "PUT '/posts/:id'" do
    before(:each) do
+      session["current_user_blog"]="Julien"
       @p = double(Post)
       Post.stub(:find){@p}
       @p.stub(:update_attributes)

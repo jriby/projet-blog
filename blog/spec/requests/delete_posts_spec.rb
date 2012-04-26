@@ -5,10 +5,12 @@ describe "DeletePosts" do
     before(:each) do
       @post1 = Post.create(:title => "titre1", :body => "bodyyy", :creator => "Julien")
       @post2 = Post.create(:title => "titre2", :body => "bodyyy", :creator => "Julien")
+      #SessionsHelper.stub(:current_user){"loo"}      
     end
 
-    it "should have links in the listing post page to delete a post" do
+    it "should have links in the listing post page to delete a post" do 
       visit posts_path
+page.body
       page.should have_link('Destroy' , :href => post_path(@post1.id))
       page.should have_link('Destroy' , :href => post_path(@post2.id))
     end

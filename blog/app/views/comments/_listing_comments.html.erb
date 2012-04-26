@@ -3,7 +3,7 @@
     
     <p>Author : <%= comment.author %></p>
     <p>Comment : <%= comment.body %></p>
-    <p><%= link_to 'Destroy',comment_path(@post.id,comment.id), method: :delete %> </p>
+    <% if is_connected? %><p><%= link_to 'Destroy',comment_path(@post.id,comment.id), method: :delete %> </p><% end %>
   </li>
 <% end %>
 </ul>
