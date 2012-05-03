@@ -55,7 +55,10 @@ describe CommentsController do
       @c.stub(:destroy)
       @params={:id=>1, :post_id=>1}
     end
-
+    it "should not use must_be_connected" do
+      controller.should_receive(:must_be_connected)
+      delete 'destroy',@params
+    end
     it "should use find_by_id and return the post" do
       Post.should_receive(:find_by_id).with("1")
       delete 'destroy',@params

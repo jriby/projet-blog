@@ -10,10 +10,6 @@ describe "ShowPosts" do
       page.should have_link('Show' , :href => post_path(@post))
     end
     
-    it "should have a link to back to the listing post page" do
-      visit post_path(@post)
-      page.should have_link('Index' , :href => posts_path)
-    end
 
     it "print the title and the body of the post" do
       visit post_path(@post)

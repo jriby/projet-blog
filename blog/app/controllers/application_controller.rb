@@ -1,17 +1,19 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  helper_method :is_connected?
+
   def current_user
+puts "loli"
     session["current_user_blog"]
   end
 
-
-  def self.is_connected?
-    !self.current_user.nil?
+  def is_connected?
+    !current_user.nil?
   end
 
-  def self.must_be_connected
-    redirect_to(new_session_path) unless self.is_connected?
+  def must_be_connected
+    redirect_to(new_session_path) unless is_connected?
   end
   
 end

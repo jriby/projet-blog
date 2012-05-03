@@ -13,10 +13,11 @@ describe SessionsController do
         before do
           @params = { 'secret' => "jesuisauth", "login" => "log"}
         end
-        it "should redirect to the posts_path" do
-          get 'new', @params
-          response.should redirect_to(posts_path)
-        end
+
+          it "should redirect to the posts_path" do
+            get 'new', @params
+            response.should redirect_to(posts_path)
+          end
         it "should set the session" do
           get 'new', @params
           request.env["rack.session"]["current_user_blog"].should == "log"

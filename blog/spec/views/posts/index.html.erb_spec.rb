@@ -6,6 +6,7 @@ describe "posts/index" do
            stub_model(Post, :id => "1", :title => "sujet 1"),
            stub_model(Post, :id => "2", :title => "sujet 2")
           ])
+          view.stub(:is_connected?)
     end
 
   it "displays all the posts" do
@@ -16,7 +17,7 @@ describe "posts/index" do
 
   context "with current user" do
     before(:each) do
-      session["current_user_blog"]="Julien"
+          view.stub(:is_connected?){true}
     end
 
     it "have a link New Post" do
@@ -35,7 +36,9 @@ describe "posts/index" do
     end
   end
   context "without current user" do
-    
+    before(:each) do
+          view.stub(:is_connected?){false}
+    end    
     it "not have a link New Post" do
       render
       rendered.should_not have_link('New Post')

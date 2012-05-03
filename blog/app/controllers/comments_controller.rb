@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-  include SessionsHelper
 
   before_filter :must_be_connected, :except => [:new, :create]
 

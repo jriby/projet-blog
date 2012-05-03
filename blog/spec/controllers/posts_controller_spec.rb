@@ -5,6 +5,10 @@ describe PostsController do
       @posts = [stub_model(Post,:title => "1"), stub_model(Post, :title => "2")]
       Post.stub(:all){ @posts }
     end
+    it "should not use must_be_connected" do
+      controller.should_not_receive(:must_be_connected)
+      get 'index'
+    end
     it "assigns a list of posts" do
       Post.should_receive(:all).and_return(@posts)
       get 'index'
@@ -21,6 +25,10 @@ describe PostsController do
   describe "GET 'new'" do
     before(:each) do
       session["current_user_blog"]="Julien"
+    end
+    it "should use must_be_connected" do
+      controller.should_receive(:must_be_connected)
+      get 'new',@params
     end
     it "should use new" do
       Post.should_receive(:new)
@@ -41,6 +49,11 @@ describe PostsController do
       @params={:post=>{:title=>"title",:body=>"content"}}
     end
 
+    it "should use must_be_connected" do
+      controller.should_receive(:must_be_connected)
+      post 'create',@params
+    end
+
     it "should create a new post" do
       Post.should_receive(:create).with("title"=>"title", "body"=>"content")
       post 'create',@params
@@ -59,6 +72,11 @@ describe PostsController do
       Post.stub(:find){@p}
       @p.stub(:destroy)
       @params={:id =>"1"}
+    end
+
+    it "should use must_be_connected" do
+      controller.should_receive(:must_be_connected)
+      delete 'destroy',@params
     end
 
     it "should use find and return the post" do
@@ -83,6 +101,12 @@ describe PostsController do
       Post.stub(:find){@p}
       @params={:id =>"1"}
     end
+
+    it "should use must_be_connected" do
+      controller.should_receive(:must_be_connected)
+      get 'edit',@params
+    end
+
     it "should use find" do
       Post.should_receive(:find).with("1")
       get 'edit',@params
@@ -103,6 +127,11 @@ describe PostsController do
       @p.stub(:update_attributes)
       @params={:id=>1,:post=>{"title"=>"title2","body"=>"body2"}}
     end
+
+    it "should use must_be_connected" do
+      controller.should_receive(:must_be_connected)
+      put 'update',@params
+    end
     it "should use find" do
       Post.should_receive(:find).with("1")
       put 'update',@params
@@ -122,6 +151,10 @@ describe PostsController do
       @p = double(Post)
       Post.stub(:find){@p}
       @params={:id =>"1"}
+    end
+    it "should use must_be_connected" do
+      controller.should_receive(:must_be_connected)
+      post 'create',@params
     end
     it "should use find" do
       Post.should_receive(:find).with("1")
