@@ -1,0 +1,6 @@
+$(".form_container").remove();
+$("a[href='<%= new_comment_path(@post.id) %>']").after("<div class='form_container'>");
+$("<div class='form_container'>").after("</div>");
+$(".form_container").append("<%= escape_javascript(render 'comments/form') %>");
+$("form").attr("data-remote", true);
+$("a[href='<%= new_comment_path(@post.id) %>']").fadeOut();

@@ -1,0 +1,8 @@
+$("a[href='<%= edit_post_path(@post.id) %>']").fadeIn();
+
+
+$("a[href='<%= edit_post_path(@post.id) %>']").parent().replaceWith("<div class='list-posts'>   <h1 class='post-title'><%= escape_javascript(@post.title) %></h1><p class='date'>updated_at : Now</p><% if is_connected? %><%= escape_javascript(link_to 'Destroy', @post, :confirm=>'Are you sure', method: :delete) %><%= escape_javascript(link_to 'Edit', edit_post_path(@post.id)) %><% end %><div class='show-post'><%= escape_javascript(link_to 'Show', post_path(@post.id)) %></div></div>");
+
+
+$("form").remove();
+

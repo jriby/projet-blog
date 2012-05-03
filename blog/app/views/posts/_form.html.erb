@@ -1,0 +1,11 @@
+<div class="form">
+ <%= form_tag("/posts", :method => "post") do %>
+  <%= label(:post,:title, "title :", :id => "labelarea") %>
+  <%= text_field(:post, :title, :size => 55,:class => "form-field") %>
+        <br><br><br><br>
+  <%= label(:post,:body, "body :", :id => "labelarea") %>
+  <%= text_area(:post, :body,:size => "55x10", :class => "form-field") %>
+  <%= submit_tag("Create",:class => "form-submit") %>
+<% end %>
+
+</div>

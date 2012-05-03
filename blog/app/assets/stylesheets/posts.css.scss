@@ -1,3 +1,259 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+    background: #000000;
+    color: #FFFFFF;
+    font: 62.5% Arial;
+ }
+
+
+.end{
+  clear:both;
+}
+
+hr {
+color: #4682E2;
+height: 1px;
+}
+
+p.date{
+  font-size:10px;
+  color:#FF6600;
+
+}
+
+div.header{
+  height:250px;
+  width:100%;
+}
+
+div.header-box{
+  width:80%;
+  margin-right:auto;
+  margin-left:auto;
+}
+
+
+div.tetris{
+  width:1000px;
+  margin-right:auto;
+  margin-left:auto;
+  min-height:800px;
+  margin-top:50px;
+  margin-bottom:50px;
+}
+
+div.content{
+  width:1000px;
+  margin-right:auto;
+  margin-left:auto;
+  min-height:800px;
+  margin-top:50px;
+  margin-bottom:50px;
+}
+
+div.content-left{
+  width:300px;
+  float:rigth;
+
+}
+
+div.list-posts{
+  margin:30px;
+  font-family:Arial;
+  color:#FFFFFF;
+}
+
+
+div.post{
+  font-family:Arial;
+  color:#FFFFFF;
+  margin:30px
+}
+div.list-posts li{
+  list-style-type:none;
+  margin-bottom:50px;
+}
+
+div.list-posts a{
+color:#FFFFFF;
+font-size:14px;
+text-decoration:none;
+padding:5px;
+background-color:#A90B22;
+border-radius:20px;
+font-weight:bold;
+cursor:pointer;
+}
+div.post-title{
+  float:left;
+}
+
+h1.post-title{
+  font-size:20px;
+}
+
+div.show-post{
+  float:rigth;
+  margin-top:20px;
+  margin-right:200px;
+}
+
+div.show-post a{
+color:#FFFFFF;
+font-size:14px;
+text-decoration:none;
+padding:5px;
+background-color:#4682E2;
+border-radius:20px;
+font-weight:bold;
+cursor:pointer;
+}
+
+div.show-post-page{
+  float:rigth;
+  margin-top:20px;
+  margin-right:200px;
+  font-size:large;
+}
+
+div.show-post-page a{
+color:#FFFFFF;
+font-size:14px;
+text-decoration:none;
+padding:5px;
+background-color:#4682E2;
+border-radius:20px;
+font-weight:bold;
+cursor:pointer;
+}
+
+div.list-comment{
+  float:rigth;
+  margin-top:20px;
+  font-size:medium;
+}
+
+div.list-comment a{
+color:#FFFFFF;
+font-size:14px;
+text-decoration:none;
+padding:5px;
+background-color:#A90B22;
+border-radius:20px;
+font-weight:bold;
+cursor:pointer;
+}
+
+
+div.content-right{
+  width:750px;
+  min-height:800px;
+  border:2px solid #4682E2;
+  border-radius: 10px;
+  float:right;
+  margin-right:30px;
+}
+
+div.pres-content{
+  min-height:80px;
+  border:2px solid #4682E2;
+  border-radius: 10px;
+  margin-right:30px;
+  float:left;
+  font-size:12px;
+  font-family:Arial;
+  margin:10px;
+  width:150px;
+  text-align:justify;
+}
+
+
+
+div.session{
+  min-height:80px;
+  border:2px solid #4682E2;
+  border-radius: 10px;
+  float:left;
+  font-size:12px;
+  font-family:Arial;
+  margin:10px;
+  width:150px;
+  text-align:justify;
+}
+
+div.session a{
+color:#FFFFFF;
+font-size:14px;
+text-decoration:none;
+padding:5px;
+background-color:#4682E2;
+border-radius:20px;
+font-weight:bold;
+cursor:pointer;
+}
+
+
+
+div.form{
+  margin:30px;
+  font-family:Arial;
+
+}
+
+div.form p{
+  font-size:24px;
+  margin-bottom:20px;
+}
+
+div.form label{
+  text-align:left;
+  width:100px;
+  float:left;
+
+}
+
+#labelarea{
+  vertical-align:top;
+  font-size: large;
+
+}
+.form-field{
+  background:url(black-bg.gif);
+  border:none;
+  border-radius:10px;
+  color:#FFFFFF;
+  padding:5px;
+  float:left;
+  border:2px solid #4682E2;
+}
+
+.form-submit{
+  margin-top:20px;
+  margin-left:100px;
+  border:none;
+  width:465px;
+  height:30px;
+  color:#FFFFFF;
+  background:#1E65A6;
+  border-radius:20px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.form-submit:hover{
+  margin-top:20px;
+  margin-left:100px;
+  border:none;
+  width:465px;
+  height:30px;
+  color:#FFFFFF;
+  background:#4682E2;
+  border-radius:20px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+

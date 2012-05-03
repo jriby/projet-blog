@@ -1,16 +1,19 @@
-<h1>Posts#index</h1>
-
+<h1>Liste des Posts</h1>
+<div class="list-posts">
 <ul>  
 <% @posts.each do |post| %> 
-  <li><%= post.title %><% if is_connected? %><%= link_to 'Destroy', post, :confirm=>"Are you sure", method: :delete %>
-                       <%= link_to 'Edit', edit_post_path(post.id) %>
+  <li> <h1 class="post-title"><%= post.title %></h1>
+                             <p class="date">created_at : <%= post.created_at %></p>
+                       <% if is_connected? %><%= link_to 'Destroy', post, :confirm=>"Are you sure", method: :delete, :remote => true %>
+                       <%= link_to 'Edit', edit_post_path(post.id), :remote => true %>
                        <% end %>
-                       <%= link_to 'Show', post_path(post.id) %></li>
+                        <div class="show-post"><%= link_to 'Show', post_path(post.id) %></div></li>
 <% end %>
+
 </ul>
 
-<% if is_connected? %><p><%= link_to 'New Post', new_post_path %></p><% end %>
+<% if is_connected? %><p><%= link_to 'New Post', new_post_path, :remote => true %></p><% end %>
 
-<%= render 'sessions/status_session' %>
+</div>
 
-
+<%= render 'posts/tetrisss' %>

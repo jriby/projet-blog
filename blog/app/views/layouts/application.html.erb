@@ -2,13 +2,40 @@
 <html>
 <head>
   <title>ProjetBlog</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+   <div class="header">
+    <div class="header-box">
+      <div class="tetris">
+        <%= link_to image_tag("tetris.png"), posts_path, :title => "homepage" %>
+      </div>
+    </div>
+  </div>
 
-<%= yield %>
+  <div class="content">
+    <div class="content-right">
+      <%= yield %>
+    </div>
+    <div class="content-left">
+
+      <div class="pres-content">
+
+        <p>Bienvenue sur le blog de Julien ! </p>
+        <br />
+        <p>Blog pour le projet rails ENSEEIHT</p>
+      </div>
+      <div class="session">
+            <%= render 'sessions/status_session' %>
+      </div>
+
+
+<p class="end"></p> 
+    </div>
+  </div>
+      <p class="end"></p>
 
 </body>
 </html>

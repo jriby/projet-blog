@@ -1,9 +1,19 @@
+<div class="list-comment">
+<hr>
 <ul>
 <% @post.comments.all.each do |comment| %>
-    
+    <div class="comment">
     <p>Author : <%= comment.author %></p>
+
+<p class="date">created_at : <%= comment.created_at %></p>
     <p>Comment : <%= comment.body %></p>
-    <% if is_connected? %><p><%= link_to 'Destroy',comment_path(@post.id,comment.id), method: :delete %> </p><% end %>
-  </li>
+    <% if is_connected? %><div class="destroy-comment"><%= link_to 'Destroy', comment_path(@post.id,comment.id), :confirm=>"Are you sure", method: :delete, :remote => true %></div><% end %>
+    <br>
+    <hr>
+</div>
 <% end %>
 </ul>
+<br>
+</div>
+
+

@@ -1,3 +1,4 @@
+<div class="session">
 <% if session["current_user_blog"] %>
 <p>Connected</p>
 <p>Bonjour <%= session["current_user_blog"] %></p>
@@ -5,3 +6,4 @@
 <p>Not connected</p>
 <p><%= link_to 'Connection', new_session_path %></p>
 <% end %>
+</div>

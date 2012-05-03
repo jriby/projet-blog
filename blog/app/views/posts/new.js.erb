@@ -1,0 +1,6 @@
+$(".form_container").remove();
+$("a[href='<%= new_post_path %>']").after("<div class='form_container'>");
+$("<div class='form_container'>").after("</div>");
+$(".form_container").append("<%= escape_javascript(render 'posts/form') %>");
+$("form").attr("data-remote", true);
+$("a[href='<%= new_post_path %>']").fadeOut();

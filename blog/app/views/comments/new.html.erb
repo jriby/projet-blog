@@ -1,9 +1,3 @@
-<div class="form_comment">
-<%= form_tag("/posts/#{@post.id}/comments", :method => "post") do %>
-<%= label(:comment,:author, "Author :") %>
-<%= text_field(:comment, :author) %>
-<%= label(:comment,:body, "body :") %>
-<%= text_area(:comment, :body) %>
-<%= submit_tag("Submit Comment") %>
-<% end %>
-</div>
+
+	<%=render 'comments/form'%>
+

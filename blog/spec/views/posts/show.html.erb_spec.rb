@@ -15,9 +15,4 @@ describe "posts/show" do
    render
    view.should render_template(:partial => "_listing_comments")
   end
-
-  it "have a link Index" do
-    render
-    rendered.should have_link('Index', :href => posts_path)
-  end
 end

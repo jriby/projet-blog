@@ -50,9 +50,4 @@ describe "posts/index" do
       rendered.should_not have_link('Edit')
     end
   end
-
-  it "should displays status_session" do
-    render
-    view.should render_template(:partial => "_status_session")
-  end
 end

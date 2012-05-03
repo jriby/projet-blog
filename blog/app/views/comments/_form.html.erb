@@ -1,0 +1,10 @@
+<div class="form">
+<%= form_tag("/posts/#{@post.id}/comments", :method => "post") do %>
+<%= label(:comment,:author, "Author :", :id => "labelarea") %>
+<%= text_field(:comment, :author, :size => 24,:class => "form-field") %>
+    <br><br><br><br>
+<%= label(:comment,:body, "body :", :id => "labelarea") %>
+<%= text_area(:comment, :body,:size => "55x10", :class => "form-field") %>
+<%= submit_tag("Submit Comment",:class => "form-submit") %>
+<% end %>
+</div>
