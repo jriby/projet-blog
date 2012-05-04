@@ -5,7 +5,8 @@ describe "DeletePosts" do
     before(:each) do
       @post1 = Post.create(:title => "titre1", :body => "bodyyy", :creator => "Julien")
       @post2 = Post.create(:title => "titre2", :body => "bodyyy", :creator => "Julien")
-      #SessionsHelper.stub(:current_user){"loo"}      
+      User.stub!(:find){"Lol"}
+     
     end
 
     it "should have links in the listing post page to delete a post" do 

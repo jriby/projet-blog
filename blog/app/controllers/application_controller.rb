@@ -4,8 +4,7 @@ class ApplicationController < ActionController::Base
   helper_method :is_connected?
 
   def current_user
-puts "loli"
-    session["current_user_blog"]
+    User.find(session)
   end
 
   def is_connected?
@@ -15,5 +14,6 @@ puts "loli"
   def must_be_connected
     redirect_to(new_session_path) unless is_connected?
   end
-  
+    private
+
 end

@@ -5,12 +5,12 @@ require 'spec_helper'
 describe "EditPosts" do
   before(:each) do
     @post = Post.create(:title => "Titre1", :body => "body1", :creator => "Julien")
-     ApplicationController.stub(:current_user){"toto"}
+    User.stub!(:find){"Lol"}
   end
 
     it "should have a link in the listing post page to edit a post" do
       visit posts_path
-      page.should have_link('Edit')#, :href => edit_post_path(@post)
+      page.should have_link('Edit', :href => edit_post_path(@post))
     end
 
     it "should print the form to edit a new post" do

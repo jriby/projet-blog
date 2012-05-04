@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe "CreatePosts" do
+  before(:each) do
+    User.stub!(:find){"Lol"}
+  end
+
   describe "GET /posts/new" do
     it "should have a link in the listing post page to create a post" do
       visit posts_path
