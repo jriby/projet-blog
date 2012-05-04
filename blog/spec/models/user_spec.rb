@@ -5,17 +5,19 @@ describe User do
 
     context "With a current_user" do
 
-      it "should return sesson[current_user_blog]" do
-        #session["current_user_blog"] = "lol"
-        #User.find(session).should == "lol"
+      it "should return session[current_user_blog]" do
+        param = {"current_user_blog" => "lol"}
+        User.find(param).should == "lol"
       end      
     end
 
-    context "With a current_user" do
+    context "Without a current_user" do
 
-      it "should return sesson[current_user_blog]" do
-                #User.find(session).should == nil
+      it "should return sesson[current_user_blog] (nil)" do
+        param = {"current_user_blog" => nil}
+        User.find(param).should == nil
       end
     end
   end
 end
+
