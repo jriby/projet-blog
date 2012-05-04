@@ -9,6 +9,11 @@ describe CommentsController do
       @params={:post_id=> 1}
     end
 
+    it "should use post_exist" do
+      controller.should_receive(:post_exist)
+      get 'new', @params
+    end
+
     it "should use new" do
       Post.should_receive(:find_by_id).with("1")
       get 'new', @params
@@ -28,6 +33,11 @@ describe CommentsController do
       @p.stub(:comments){@c}
       @c.stub(:create)
       @params={:post_id=> 1, :comment=>{"author"=>"Author","body"=>"Body"}}
+    end
+
+    it "should use post_exist" do
+      controller.should_receive(:post_exist)
+      post 'create',@params
     end
 
     it "should receive find_by_id" do
@@ -55,6 +65,12 @@ describe CommentsController do
       @c.stub(:destroy)
       @params={:id=>1, :post_id=>1}
     end
+
+    it "should use post_exist" do
+      controller.should_receive(:post_exist)
+      delete 'destroy',@params
+    end
+
     it "should not use must_be_connected" do
       controller.should_receive(:must_be_connected)
       delete 'destroy',@params
@@ -79,6 +95,4 @@ describe CommentsController do
        response.should redirect_to(post_path(@p))
     end
   end
-
-
 end

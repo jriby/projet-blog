@@ -20,4 +20,20 @@ describe Post do
       end
     end
   end
+
+  describe "exist?" do
+
+    it"should return true if the post exist" do
+      @params = { 'post' => {"title" => "title1", "body" => "I am the body of title1", "creator" => "Julien"}}
+      @p = Post.create(@params['post'])
+      Post.exist?(@p.id).should == true
+      @p.destroy
+    end
+
+    it"should return false if the post doesnt exist" do
+      Post.exist?(666).should == false
+    end
+
+  end 
+
 end

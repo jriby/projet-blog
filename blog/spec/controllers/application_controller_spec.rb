@@ -53,4 +53,33 @@ describe ApplicationController do
     end
   end
 
+  describe "post_exist" do
+  
+    context "the post doesnt exist" do
+      before(:each) do
+        Post.stub(:exist?){false}
+      end
+      
+      it "should redirect" do
+        controller.should_receive(:redirect_to)
+        controller.post_exist
+      end
+    end
+
+    context "the post exist" do
+      before(:each) do
+        Post.stub(:exist?){true}
+      end
+
+      it "shoul use method exist? from post" do
+        Post.should_receive(:exist?)
+        controller.post_exist
+      end
+
+      it "should have respinse status 200" do
+        controller.post_exist
+        response.status.should == 200
+      end
+    end
+  end
 end

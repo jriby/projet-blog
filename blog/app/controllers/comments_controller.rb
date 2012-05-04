@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
 
   before_filter :must_be_connected, :except => [:new, :create]
+  before_filter :post_exist
 
   def new
     @post = Post.find_by_id(params[:post_id])

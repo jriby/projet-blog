@@ -14,6 +14,9 @@ class ApplicationController < ActionController::Base
   def must_be_connected
     redirect_to(new_session_path) unless is_connected?
   end
-    private
+  
+  def post_exist
+    redirect_to(new_session_path) unless Post.exist?(params[:post_id])
+  end
 
 end
