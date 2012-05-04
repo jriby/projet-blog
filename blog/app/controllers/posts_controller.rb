@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
 
   before_filter :must_be_connected, :except => [:index, :show]
+  before_filter :post_exist, :except => [:index, :new ,:create]
+
+
   def index
     @posts = Post.all
   end
@@ -24,7 +27,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
+    @post = Post.find_by_id(params[:id])
     @post.destroy
 
     respond_to do |format|
@@ -35,7 +38,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
+    @post = Post.find_by_id(params[:id])
     respond_to do |format|
       format.js
       format.html
@@ -43,7 +46,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id])
+    @post = Post.find_by_id(params[:id])
     @post.update_attributes(params[:post])
 
     respond_to do |format|
@@ -53,6 +56,6 @@ class PostsController < ApplicationController
     end
   end
   def show
-    @post = Post.find(params[:id])
+    @post = Post.find_by_id(params[:id])
   end
 end

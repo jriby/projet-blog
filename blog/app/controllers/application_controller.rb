@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   end
   
   def post_exist
-    redirect_to(new_session_path) unless Post.exist?(params[:post_id])
+    redirect_to(new_session_path) unless Post.exist?(params[:post_id]) || Post.exist?(params[:id])
   end
 
 end

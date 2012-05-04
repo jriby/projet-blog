@@ -69,9 +69,13 @@ describe PostsController do
    before(:each) do
       session["current_user_blog"]="Julien"
       @p = double(Post)
-      Post.stub(:find){@p}
+      Post.stub(:find_by_id){@p}
       @p.stub(:destroy)
       @params={:id =>"1"}
+    end
+    it "should use post_exist" do
+      controller.should_receive(:post_exist)
+      delete 'destroy',@params
     end
 
     it "should use must_be_connected" do
@@ -80,7 +84,7 @@ describe PostsController do
     end
 
     it "should use find and return the post" do
-      Post.should_receive(:find).with("1")
+      Post.should_receive(:find_by_id).with("1")
       delete 'destroy',@params 
     end
 
@@ -98,8 +102,13 @@ describe PostsController do
    before(:each) do
       session["current_user_blog"]="Julien"
       @p = double(Post)
-      Post.stub(:find){@p}
+      Post.stub(:find_by_id){@p}
       @params={:id =>"1"}
+    end
+
+    it "should use post_exist" do
+      controller.should_receive(:post_exist)
+      get 'edit',@params
     end
 
     it "should use must_be_connected" do
@@ -108,7 +117,7 @@ describe PostsController do
     end
 
     it "should use find" do
-      Post.should_receive(:find).with("1")
+      Post.should_receive(:find_by_id).with("1")
       get 'edit',@params
       response.should be_success
     end
@@ -123,9 +132,14 @@ describe PostsController do
    before(:each) do
       session["current_user_blog"]="Julien"
       @p = double(Post)
-      Post.stub(:find){@p}
+      Post.stub(:find_by_id){@p}
       @p.stub(:update_attributes)
       @params={:id=>1,:post=>{"title"=>"title2","body"=>"body2"}}
+    end
+
+    it "should use post_exist" do
+      controller.should_receive(:post_exist)
+      put 'update',@params
     end
 
     it "should use must_be_connected" do
@@ -133,7 +147,7 @@ describe PostsController do
       put 'update',@params
     end
     it "should use find" do
-      Post.should_receive(:find).with("1")
+      Post.should_receive(:find_by_id).with("1")
       put 'update',@params
     end
     it "should use update_atttributes" do
@@ -149,15 +163,17 @@ describe PostsController do
   describe "GET '/posts/:id'" do
    before(:each) do
       @p = double(Post)
-      Post.stub(:find){@p}
+      Post.stub(:find_by_id){@p}
       @params={:id =>"1"}
     end
-    it "should use must_be_connected" do
-      controller.should_receive(:must_be_connected)
-      post 'create',@params
+
+    it "should use post_exist" do
+      controller.should_receive(:post_exist)
+      get 'show',@params
     end
+
     it "should use find" do
-      Post.should_receive(:find).with("1")
+      Post.should_receive(:find_by_id).with("1")
       get 'show',@params
       response.should be_success
     end
