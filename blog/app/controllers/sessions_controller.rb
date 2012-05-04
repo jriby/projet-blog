@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
 
   def new
-
     if is_connected?
       redirect_to posts_path
     
@@ -15,4 +14,10 @@ class SessionsController < ApplicationController
       redirect_to :root, :status => 403
     end
   end
+
+  def destroy
+    session["current_user_blog"] = nil
+    redirect_to posts_path
+  end
+
 end

@@ -9,9 +9,14 @@ describe SessionsController do
     new_session_path.should == '/sessions/new'
   end
 
-  it "routes to the sauth" do 
-    #get('http://sauth:6666/sessions/new/app/app_blog?origin=/sessions/new').should redirect_to("http://sauth:6666/sessions/new/app/app_blog?origin=/sessions/new")
+  it "should provide the aliast session_path for /sessions" do
+    session_path.should == '/sessions'
   end
+
+    it "routes to #destroy" do 
+    delete('/sessions').should route_to("sessions#destroy")
+  end
+
 
 
 end

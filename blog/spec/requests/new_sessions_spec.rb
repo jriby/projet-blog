@@ -4,7 +4,7 @@ require 'capybara/mechanize'
 describe "NewSessions", :driver => :mechanize do
   describe "GET /sessions/new" do
 
-    it "should have a link in the listing post page to signin" do
+    it "should have a link in the listing post page to connect" do
       visit posts_path
       page.should have_link('Connection', :href => new_session_path)
     end

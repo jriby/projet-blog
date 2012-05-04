@@ -40,4 +40,16 @@ describe SessionsController do
       end
     end
   end
+
+  describe "destroy" do
+    it "should set session[current_user_blog] at nil" do
+      request.env["rack.session"]["current_user_blog"] = "log"
+      delete 'destroy'
+      request.env["rack.session"]["current_user_blog"].should == nil
+    end
+    it "should redirect to the posts_path" do
+      delete 'destroy'
+      response.should redirect_to(posts_path)
+    end
+  end
 end

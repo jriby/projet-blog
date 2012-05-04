@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe ApplicationController do
    describe "current_user" do
+   it "should return session['current_user_blog']" do
+     User.should_receive(:find)
+     controller.current_user
+   end
   
     context "With current user" do
       it "should return session['current_user_blog']" do

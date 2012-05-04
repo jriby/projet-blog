@@ -1,7 +1,8 @@
 <div class="session">
-<% if session["current_user_blog"] %>
+<% if is_connected? %>
 <p>Connected</p>
-<p>Bonjour <%= session["current_user_blog"] %></p>
+<p>Bonjour <%= current_user %></p>
+<p><%= link_to 'Disconnect', session_path, :confirm=>"Are you sure to Disconnect?", method: :delete %></p>
 <% else %>
 <p>Not connected</p>
 <p><%= link_to 'Connection', new_session_path %></p>

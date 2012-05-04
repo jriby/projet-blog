@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  helper_method :is_connected?
+  helper_method :is_connected?, :current_user
 
   def current_user
     User.find(session)

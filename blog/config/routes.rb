@@ -8,6 +8,8 @@ match '/posts/:post_id/comments' => 'comments#create', :via => :post
 match '/posts/:post_id/comments/:id' => 'comments#destroy',:as => :comment, :via => :delete
 
 resources :sessions, :only => [:new]
+match '/sessions' => 'sessions#destroy',:as => :session, :via => :delete
+
 
 
   # The priority is based upon order of creation:
