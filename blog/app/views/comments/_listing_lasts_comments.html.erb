@@ -1,3 +1,4 @@
+<div class="last">
 <p>Latest Comments</p>
 <ul>
   <% Comment.order("id desc").limit(5).each do |comment| %>
@@ -6,4 +7,4 @@
     </li>
   <% end %>
 </ul>
-
+</div>

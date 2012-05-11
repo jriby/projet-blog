@@ -2,5 +2,6 @@ $("a[href='<%= new_comment_path(@post.id) %>']").fadeIn();
 
 $("a[href='<%= new_comment_path(@post.id) %>']").before("<ul><div class='list-comment'><div class='comment'><p>Author : <%= escape_javascript(@comment.author) %></p>   <p class='date'>created_at : Now </p><p>Comment : <%= escape_javascript(@comment.body) %></p>    <% if is_connected? %><div class='destroy-comment'><%= escape_javascript(link_to 'Destroy',comment_path(@post.id,@comment.id), method: :delete, :remote => true) %></div></div><% end %></div><hr><br></ul>");
 
+$('div.last p:contains("Latest Comments")').parent().children('ul').prepend('<li><%= escape_javascript(link_to @comment.body[0..40]+"...",post_path(@comment.post_id)) %></li>');
 
 $("form").remove();
