@@ -1,0 +1,10 @@
+<div class="lasts_comments">
+<p>Latest Comments</p>
+<ul>
+  <% Comment.order("id desc").limit(5).each do |comment| %>
+    <li>
+      <%= link_to comment.body[0..9]+"...",post_path(comment.post_id) %>
+    </li>
+  <% end %>
+</ul>
+</div>

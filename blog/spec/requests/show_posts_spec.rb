@@ -5,7 +5,7 @@ describe "ShowPosts" do
     before(:each) do
       @post = Post.create(:title => "sujet1", :body => "bla bla", :creator => "jriby")
     end
-   it "should have a link in the listing post page to show a post" do
+    it "should have a link in the listing post page to show a post" do
       visit posts_path
       page.should have_link('Show' , :href => post_path(@post))
     end
