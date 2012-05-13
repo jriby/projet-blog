@@ -1,0 +1,61 @@
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Projet Applications internet - Blog 
+Julien RIBY 
+2A Info et Réseaux ENSEEIHT
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+== Welcome to My blog
+
+Ceci est mon blog réalisé dans le cadre de ma formation d'ingénieur informatique est réseaux à l'ENSEEIHT.
+
+== Lancer le sauth et le blog
+
+1. Modifier le fichier /etc/hosts et ajouter les lignes  (être en su)
+
+127.0.1.1       sauth
+127.0.1.1       blog
+
+2. Lancer les serveur
+
+Terminal 1
+1. cd sauth/
+2. ruby sauth.rb 
+
+----> Adresse du serveur d'auth : http://sauth:6666
+
+Terminal 2
+1. cd blog/
+2. rails server
+
+----> Adresse du blog : http://blog:3000
+
+== Lancer les tests
+
+Dans blog/ faire la commande : guard -c  --> 126 examples, 0 failures
+
+== Utilisation du blog
+
+1. Mode non connecté
+
+Le mode non connecté permet de parcourir les posts et de les commenter.
+Vous pouvez donc :
+Afficher l'intégralité d'un post et ses coms en cliquant sur le lien "Show".
+Sur la page du post, commenter en cliquant sur le lien "Add a comment".
+Retourner à l'index en cliquant sur l'image Tetris
+
+
+2. Mode connecté
+
+A tout moment, vous pouvez vous authentifier en cliquant sur le lien Connection. Vous serez redirigé vers le sauth.
+
+Vous avez plusieurs comptes à votre disposition : log : user pass: user / log : Julien pass : lol / log : admin pass : admin
+
+Un utilisateur authentifié a, en plus de la consultation des posts, les actions suivantes :
+
+- Création/Edition/Suppression de post
+- Suppression des commentaires
+
+== Javascript
+Le site fonctionne même si le Javascript n'est pas activé sauf pour les actions delete.
+
+
